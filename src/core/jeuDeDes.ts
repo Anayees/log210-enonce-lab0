@@ -33,6 +33,14 @@ export class JeuDeDes {
         return JSON.stringify(joueur);
     }
 
+    public redemarrerJeu(): string {
+        this._joueurs.clear();
+        const resultat = {
+            message: "Le jeu a été redémarré."
+        };
+        return JSON.stringify(resultat);
+    }
+
     public jouer(nom: string): string {
         const joueur = this._joueurs.get(nom);
         if (!joueur) {
