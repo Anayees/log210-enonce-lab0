@@ -1,1 +1,10 @@
-// Vous devez compléter ce fichier
+@startuml
+!theme plain
+title DSS pour le scénario Redémarrer
+
+actor Joueur
+participant ":Système" as Système
+
+Joueur -> Système : redémarrerJeu()
+
+@enduml
