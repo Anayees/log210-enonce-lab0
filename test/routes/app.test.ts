@@ -49,6 +49,7 @@ describe('/signout', () => {
 describe('/signin (déconnecté)', () => {
 
   it('devrait avoir un contenu HTML', async () => {
+    await request.get('/signout');
     const response = await request.get('/signin');
     expect(response.status).toBe(200);
     expect(response.type).toBe("text/html");
@@ -60,5 +61,15 @@ describe('GET /bo/gu/s/URL/', () => {
   it(`devrait répondre avec une mauvaise demande lorsque l'URL est mauvais`, async () => {
     const response = await request.get('/bo/gu/s/URL/' + testNom1);
     expect(response.status).toBe(404);
+  });
+});
+
+describe('/stats (joueur sans tentatives)', () => {
+  it('devrait gérer les joueurs avec zéro tentatives', async () => {
+    await request.post('/api/v1/jeu/demarrerJeu').send({ nom: 'NouveauJoueur' });
+    
+    const response = await request.get('/stats');
+    expect(response.status).toBe(200);
+    expect(response.type).toBe("text/html");
   });
 });

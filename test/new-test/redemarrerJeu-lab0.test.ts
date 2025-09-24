@@ -14,7 +14,7 @@ describe('redemarrerJeu.test.ts', () => {
   });
 
   it("devrait contenir un test pour jouer qui retourne 404 (après redemarrerJeu()", () => {
-    expect(content.includes("/api/v1/jeu/jouer/")).toBeTruthy();
-    expect(content.includes(".status).toBe(404)")).toBeTruthy();
+    expect(content.includes("/api/v1/jeu/jouer")).toBeTruthy();
+    expect(content.includes("expect(res.status).toBe(404)")).toBeTruthy();
   });
 });
